@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Curso
+from .form import CursoForm
 
 
 # Create your views here.
@@ -54,3 +55,20 @@ def login_request(request):
 
      form = AuthenticationForm()
      return render(request, "main/login.html", {"form": form})
+
+def curso_form(request):
+    if request.method == 'GET':
+        form = CursoForm
+        contexto = {
+        'form' : form
+        }
+    else:
+        form = CursoForm(request.POST)
+        contexto = {
+        'form' : form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('main:homepage')
+
+    return render(request,  "main/guardarCurso.html", contexto)

@@ -1,0 +1,19 @@
+{% extends "main/principal.html" %} 
+
+Inscripcion de Estudiantes
+
+{% block content %}
+<center>
+  <h2>Registrar un nuevo Curso</h2>
+
+</center>
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}}
+
+
+<center><button type="submit">Crear y Editar</button></center>
+
+</form>
+
+{% endblock %}
