@@ -1,14 +1,15 @@
 from django.contrib import admin
+from .models import Inscripcion
 
 # Register your models here.
 class InscripcionesAdmin (admin.ModelAdmin):
 
     list_display = (
         'id',
-        'curso_titulo', 
-        'curso_publicado',
-        'curso_contenido',
-        'curso_costo',
+        'estudiante', 
+        'fecha_inscripcion',
+        'curso',
+        'costo_total',
         )
 
-admin.site.register(Curso, CursoAdmin)
+admin.site.register(Inscripcion, InscripcionesAdmin)
