@@ -8,7 +8,6 @@ from django.db.models.fields import DateField
 
 class Inscripcion (models.Model):
     estudiante = models.ForeignKey(User,on_delete=models.CASCADE)
-    #genero = models.CharChoices()
     fecha_inscripcion = models.DateField()
         "Fecha de publicación", default= datetime.now())
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)

@@ -2,6 +2,7 @@ from django import forms
 from  .models import Inscripcion
 from django.contrib.auth.models import User
 from django.db.models import fields
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class RegistroForm(UserCreationForm):
@@ -12,11 +13,27 @@ class RegistroForm(UserCreationForm):
         ]
         labels = {
             'username': 'Nombre de usuario',
-            
-
         }
 
-class RegistroForm(forms.ModelForm):
+class InscripcionForm(forms.ModelForm):
     class Meta:
         model = Inscripcion
-        fields = '__all__'
+    
+        fields = ('fecha_inscripcion','costo_total')
+
+class EstudianteForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+        ]
+        labels = {
+            'username' : 'Nombre de usuario',
+            'first_name': 'Nombres',
+            'last_name': 'Apellidos',
+            'email': 'Correo Electronico',
+
+        }
