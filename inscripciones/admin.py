@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Inscripcion
 
 # Register your models here.
-class InscripcionesAdmin (admin.ModelAdmin):
+class InscripcionAdmin (admin.ModelAdmin):
 
     list_display = (
         'id',
@@ -12,4 +12,4 @@ class InscripcionesAdmin (admin.ModelAdmin):
         'costo_total',
         )
 
-admin.site.register(Inscripcion, InscripcionesAdmin)
+admin.site.register(Inscripcion, InscripcionAdmin)

@@ -1,8 +1,9 @@
 from django import forms
 from  .models import Inscripcion
 from django.contrib.auth.models import User
+from django.forms.fields import CharField
 from django.db.models import fields
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 
 
 class RegistroForm(UserCreationForm):

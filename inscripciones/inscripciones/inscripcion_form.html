@@ -18,7 +18,7 @@ Inscripción de Estudiantes
     {% endif %}
 </div>
 
-<form method="post">
+<form method="POST">
     {% csrf_token %}
     {{registro_form.as_p}}
     {{inscripcion_form.as_p}}<br>

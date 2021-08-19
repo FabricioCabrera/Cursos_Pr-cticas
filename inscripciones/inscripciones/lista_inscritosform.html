@@ -1,0 +1,41 @@
+{% extends "main/principal.html" %}
+
+Inscripcion de Estudiantes 
+
+{% block content %}
+
+<h2 id="tittle_pagina">Lista de Estudiantes Registrados {{ cursos }} </h2>
+
+<h4>Total Recaudado {{ suma_costos.costo_total__sum}}</h4>
+<h4>Total Recaudado <span id="totaljs"></span></h4>
+<table class="striped">
+    <thead>
+        <tr >    
+            <th>ID</th>
+            <th>Estudiante</th>    
+            <th>Fecha de Inscripcion</th>    
+            <th>Curso Inscrito</th>    
+            <th>Precio</th>    
+            <th>Opciones</th>    
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for est in inscritos_curso %}
+        <tr>    
+            <td>{{est.id}}</td>    
+            <td>{{est.estudiante}}</td>    
+            <td>{{est.fecha_inscripcion}}</td>    
+            <td>{{est.curso}}</td>
+            <td class="fila_costo">{{est.costo_total}}</td>
+            <td><a href="{% url 'inscripciones:editar_inscripcion' est.id %}">Editar</a>    
+                <a href="{% url 'inscripciones:eliminar_inscripcion' est.id %}">Eliminar</a></td>
+
+        
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+{% endblock %}

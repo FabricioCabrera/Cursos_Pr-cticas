@@ -4,6 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path('inscripcionesform/<int:pk>/', views.inscripcionesform, name='inscripcionesform'),
+        path('inscripcionesform/<int:pk>/', views.inscripcionesform, name='inscripcionesform'),
 
 ]
