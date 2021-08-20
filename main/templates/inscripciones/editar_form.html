@@ -1,9 +1,10 @@
 {% extends "main/principal.html" %}
 
-Inscripción de Estudiantes 
+Inscripcion de Estudiantes 
 
 {% block content %}
 
+<h2>Formulario de Registro</h2>
 <div>
     {% if messages %}
     <ul class="messages">
@@ -18,13 +19,13 @@ Inscripción de Estudiantes
     {% endif %}
 </div>
 
-<form method="POST">
+<form method="post">
     {% csrf_token %}
-    {{registro_form.as_p}}
+    {{estudiante_form.as_p}}
     {{inscripcion_form.as_p}}<br>
     
     <button type="submit">Crear y Editar</button>
 
- </form>
+</form>
 
- {% endblock %}
+{% endblock %}

@@ -4,7 +4,7 @@ Inscripcion de Estudiantes
 
 {% block content %}
 
-<h2 id="tittle_pagina">Lista de Estudiantes Registrados {{ cursos }} </h2>
+<h2 id="tittle_pagina">Lista de Estudiantes Registrados {{ curso }} </h2>
 
 <h4>Total Recaudado {{ suma_costos.costo_total__sum}}</h4>
 <h4>Total Recaudado <span id="totaljs"></span></h4>
@@ -28,8 +28,7 @@ Inscripcion de Estudiantes
             <td>{{est.fecha_inscripcion}}</td>    
             <td>{{est.curso}}</td>
             <td class="fila_costo">{{est.costo_total}}</td>
-            <td><a href="{% url 'inscripciones:editar_inscripcion' est.id %}">Editar</a>    
-                <a href="{% url 'inscripciones:eliminar_inscripcion' est.id %}">Eliminar</a></td>
+            <td><a href="{% url 'inscripciones:editar_inscripcion' est.id %}">Editar</a>   <a href="{% url 'inscripciones:eliminar_inscripcion' est.id %}">Eliminar</a></td>
 
         
         </tr>
@@ -38,4 +37,17 @@ Inscripcion de Estudiantes
     </tbody>
 
 </table>
+
+</table>
+<script>
+ var suma_costos = document.querySelectorAll(".fila_costo");
+    var total = 0;
+    suma_costos.forEach(function (e) {
+        var suma = parseFloat(e.textContent);
+        total += suma;
+    });
+    var suma = document.querySelectorAll("#totaljs");
+    suma[0].innerHTML =total.toFixed(2)
+
+</script>
 {% endblock %}

@@ -3,7 +3,7 @@ from  .models import Inscripcion
 from django.contrib.auth.models import User
 from django.forms.fields import CharField
 from django.db.models import fields
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class RegistroForm(UserCreationForm):
@@ -13,7 +13,8 @@ class RegistroForm(UserCreationForm):
             'username'
         ]
         labels = {
-            'username': 'Nombre de usuario',
+            'username': 'Nombre de usuario', 
+            
         }
 
 class InscripcionForm(forms.ModelForm):
@@ -21,6 +22,7 @@ class InscripcionForm(forms.ModelForm):
         model = Inscripcion
     
         fields = ('fecha_inscripcion','costo_total')
+
 
 class EstudianteForm(forms.ModelForm):
     class Meta:

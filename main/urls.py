@@ -10,5 +10,5 @@ urlpatterns = [
     path('logout/', views.logout_request, name="logout"),
     path('login/', views.login_request, name="login"),
     path('guardarCurso/', views.curso_form, name='guardarCurso'),
-    #path('lista_estudiantes/', views.lista_estudiantes, name='lista_estudiantes'),
+    path('inscritos_curso/<int:id>/', views.inscritosCurso, name="inscritos_curso"),
 ]

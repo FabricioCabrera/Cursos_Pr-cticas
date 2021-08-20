@@ -2,8 +2,7 @@ from django.contrib import admin
 from .models import Inscripcion
 
 # Register your models here.
-class InscripcionAdmin (admin.ModelAdmin):
-
+class InscripcionAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'estudiante', 

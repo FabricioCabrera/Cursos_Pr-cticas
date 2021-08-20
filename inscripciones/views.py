@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
+from sys import prefix
+from typing import ContextManager
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from main.models import Curso
@@ -19,7 +21,7 @@ def inscripcionesform(request,pk):
 
     if request.method == 'POST':
         registro_form = RegistroForm(request.POST, prefix='form_registro')
-        inscripcion_form = InscripcionForm(request.POST, prefix='form inscripcion')
+        inscripcion_form = InscripcionForm(request.POST, prefix='form_inscripcion')
         
         if registro_form.is_valid() and inscripcion_form.is_valid():
             estudiante = registro_form.save(commit=False)
@@ -37,6 +39,9 @@ def inscripcionesform(request,pk):
             messages.error(request, registro_form.errors)
             messages.error(request, inscripcion_form.errors)
             
-    return render(request,'inscripciones/inscripcion_form.html', contexto)
-    
+    return render(request,'inscripciones/inscripcion_form.html', contexto) 
 
+    
+def lista_estudiantes(request):
+
+    return render(request, "inscripciones/lista_inscritos.html", {"inscritos_curso":Inscripcion.objects.all})

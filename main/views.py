@@ -3,8 +3,10 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.contrib import messages
+from inscripciones.models import*
 from .models import Curso
 from .form import CursoForm
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -72,3 +74,15 @@ def curso_form(request):
             return redirect('main:homepage')
 
     return render(request,  "main/guardarCurso.html", contexto)
+
+
+def inscritosCurso(request, id):
+    cursos = Curso.objects.get(id=id)
+    inscritos_curso = Inscripcion.objects.filter(curso = cursos)
+    suma_costos = inscritos_curso.aggregate(Sum('costo_total'))
+    contexto = {
+        'cursos': cursos,
+        'inscritos_curso': inscritos_curso, 
+        'suma_costos': suma_costos  
+    }
+    return render(request, 'inscripciones/lista_inscritos.html', contexto)
