@@ -7,6 +7,7 @@ from django.contrib import messages
 from main.models import Curso
 from .models import Inscripcion
 from .form import EstudianteForm, InscripcionForm, RegistroForm
+
 # Create your views here.
 
 def inscripcionesform(request,pk):
