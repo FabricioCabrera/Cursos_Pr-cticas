@@ -10,18 +10,24 @@ class RegistroForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'username'
+            'username',
+
         ]
         labels = {
             'username': 'Nombre de usuario', 
-            
+
         }
 
 class InscripcionForm(forms.ModelForm):
     class Meta:
         model = Inscripcion
     
-        fields = ('fecha_inscripcion','costo_total')
+        fields = (
+            'Nombres',
+            'Apellidos',
+            'edad',
+            'fecha_inscripcion',
+            'costo_total')
 
 
 class EstudianteForm(forms.ModelForm):
@@ -29,14 +35,11 @@ class EstudianteForm(forms.ModelForm):
         model = User
         fields = [
             'username',
-            'first_name',
-            'last_name',
             'email',
+            
         ]
         labels = {
             'username' : 'Nombre de usuario',
-            'first_name': 'Nombres',
-            'last_name': 'Apellidos',
             'email': 'Correo Electronico',
 
         }

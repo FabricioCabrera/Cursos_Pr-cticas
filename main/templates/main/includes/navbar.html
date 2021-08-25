@@ -5,8 +5,9 @@
         <li><a href="/">Inicio</a></li>
 
         {% if user.is_authenticated %}
-          <li><a href="/user">{{user.username}}</a></li>
+          <li><a></a>{{user.username}}</a></li>
           <li><a href="/guardarCurso">Agregar Curso</a></li>
+          <li><a href="{% url 'inscripcion:lista_estudiantes' %}">Lista de Estudiantes</a></li>
           <li><a href="/logout">Salir</a></li>
         {% else %}
           <li><a href="/registro">registro</a></li>
