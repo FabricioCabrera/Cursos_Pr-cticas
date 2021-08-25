@@ -15,14 +15,14 @@
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
-    <title>Cursos</title>
+    <title> Cursos</title>
+
+     {% include "main/includes/navbar.html" %}
 </head>
 <body>
 
-  {% include "main/includes/navbar.html" %}
-
   <div class="container">
-    <br><br>
+    <br>
     {% block content %} {% endblock %}
   </div>
 

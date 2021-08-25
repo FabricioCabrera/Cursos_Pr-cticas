@@ -23,8 +23,8 @@ class InscripcionForm(forms.ModelForm):
         model = Inscripcion
     
         fields = (
-            'Nombres',
-            'Apellidos',
+            'nombres',
+            'apellidos',
             'edad',
             'fecha_inscripcion',
             'costo_total')

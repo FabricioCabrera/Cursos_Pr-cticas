@@ -6,12 +6,22 @@ Inscripcion de Estudiantes
 
 <center><h3 id="tittle_pagina">Lista de Estudiantes Registrados {{ curso }} </h3></center>
 
-<h4>Total Recaudado {{ suma_costos.costo_total__sum}}</h4>
-<h4><span id="totaljs"></span></h4>
+<div class="nav-wrapper ffcc80 cfd8dc blue-grey lighten-4" >
+
+    <!--<h5>Total Recaudado: {{ suma_costos.costo_total__sum}}</h5>-->
+    <h4>Total Recaudado:  $<span id="totaljs"></span></h4>
+    <!--<h5>Edad Promedio : {% widthratio suma_edad.edad__sum div_edad.edad__count 1 %} años</h5>-->
+    <h4>Edad Promedio : <span id="totaldeEdad"></span> Años</h4> 
+    
+</div>
+
 <table class="striped">
-    <thead>
-        <tr>    
-            <th>Estudiante</th>  
+    <thead class="card teal darken-3">
+        <tr class="card-content white-text">    
+            <th>ID</th>  
+            <!--<th>Estudiante</th>-->
+            <th>Nombres</th>  
+            <th>Apellidos</th>  
             <th>Edad</th>   
             <th>Fecha de Inscripcion</th>    
             <th>Curso Inscrito</th>    
@@ -23,14 +33,16 @@ Inscripcion de Estudiantes
     <tbody>
         {% for est in inscritos_curso %}
         <tr>  
-            <td>{{est.Nombres}} {{est.Apellidos}}</td> 
+            <td>{{est.id}}</td>    
+            <!--<td>{{est.estudiante}}</td>-->
+            <td>{{est.nombres}}</td> 
+            <td>{{est.apellidos}}</td>
             <td class="edad_promedio">{{est.edad}}</td>    
             <td>{{est.fecha_inscripcion}}</td>    
-            <td>{{est.curso}}</td>
+            <td>{{est.curso.curso_titulo}}</td>
             <td class="fila_costo">{{est.costo_total}}</td>
             <td><a href="{% url 'inscripciones:editar_inscripcion' est.id %}">Editar</a>   <a href="{% url 'inscripciones:eliminar_inscripcion' est.id %}">Eliminar</a></td>
-
-        
+    
         </tr>
         {% endfor %}
 
@@ -38,10 +50,7 @@ Inscripcion de Estudiantes
 
 </table>
 
-<h7>Total Recaudado: <span id="totaljs"></span></h7><br>
-<h7>Edad Promedio Frond: <span id="totaldeEdad"></span> Años</h7>
-<h4>Edad Promedio Back: {% widthratio suma_edad.edad__sum div_edad.edad__count 1 %} años</h4>
-
+<!--<h7>Edad Promedio : <span id="totaldeEdad"></span> Años</h7>-->
 <script>
  var suma_costos = document.querySelectorAll(".fila_costo");
     var total = 0;
@@ -53,7 +62,8 @@ Inscripcion de Estudiantes
     suma[0].innerHTML =total.toFixed(2)
 
 </script>
-<!--Sirve para calcular la media de edades de los Estudiante-->    
+
+<!--Calcula la media de edades de los Estudiante-->    
 <script>
     var sumaFilas = document.querySelectorAll(".edad_promedio");
     var total = 0;

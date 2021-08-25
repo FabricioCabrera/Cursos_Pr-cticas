@@ -46,7 +46,6 @@ def inscripcionesform(request,pk):
             
     return render(request,'inscripciones/inscripcion_form.html', contexto) 
 
-    
 def lista_estudiantes(request):
     inscritos_curso = Inscripcion.objects.all()
     suma_edad = inscritos_curso.aggregate(Sum('edad'))
@@ -57,7 +56,6 @@ def lista_estudiantes(request):
         'div_edad' : div_edad,
     }
     return render(request, "inscripciones/lista_inscritos.html", contexto)
-
 
 def eliminar_inscripcion(request,id):
     incripcion = Inscripcion.objects.get(id = id)
