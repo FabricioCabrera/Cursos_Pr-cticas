@@ -3,14 +3,24 @@
 Inscripcion de Estudiantes
 
 {% block content %}
+
 <center>
   <h2>Registrar un nuevo Curso</h2>
 
 </center>
-<form method="POST">
-{% csrf_token %}
-{{form.as_p}}
 
+<form method="POST">
+  {% csrf_token %}
+
+  
+<form action="{% url 'main:curso_form' %}" method="post" enctype="multipart/form-data">
+      
+      <p>
+        <input id="id_image" type="file" accept="image/*" name="image" required>
+      </p>
+
+</form>
+{{form.as_p}}
 
 <center><button type="submit">Crear</button></center>
 

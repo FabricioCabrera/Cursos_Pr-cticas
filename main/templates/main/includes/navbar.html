@@ -10,7 +10,7 @@
           <li><a href="{% url 'inscripcion:lista_estudiantes' %}">Lista de Estudiantes</a></li>
           <li><a href="/logout">Salir</a></li>
         {% else %}
-          <li><a href="/registro">registro</a></li>
+          <li><a href="{% url 'main:registro' %}">registro</a></li>
           <li><a href="/login">Entrar</a></li>
           
         {% endif %} 

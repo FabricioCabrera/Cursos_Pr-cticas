@@ -21,6 +21,13 @@
 </head>
 <body>
 
+{% for image in images %}
+      <img src="{{image.image.url}}" style="width:150px;">
+      <p>{{image}}</p>
+{% endfor %}
+
+
+
   <div class="container">
     <br>
     {% block content %} {% endblock %}

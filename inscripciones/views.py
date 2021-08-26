@@ -7,7 +7,7 @@ from django.contrib import messages
 from main.models import Curso
 from .models import Inscripcion
 from .form import EstudianteForm, InscripcionForm, RegistroForm
-from django.db.models import Sum
+from django.db.models import Sum, Avg
 from django.db.models.aggregates import Count
 
 # Create your views here.
@@ -17,7 +17,6 @@ def inscripcionesform(request,pk):
     registro_form = RegistroForm(prefix='form_registro')
     inscripcion_form = InscripcionForm(prefix='form_inscripcion') 
   
-
     contexto = {
         'registro_form':registro_form,
         'inscripcion_form':inscripcion_form
@@ -50,10 +49,12 @@ def lista_estudiantes(request):
     inscritos_curso = Inscripcion.objects.all()
     suma_edad = inscritos_curso.aggregate(Sum('edad'))
     div_edad = inscritos_curso.aggregate(Count('edad'))
+    promedio_edad = inscritos_curso.aggregate(Avg('edad'))
     contexto = {
         'inscritos_curso':inscritos_curso,
         'suma_edad': suma_edad,
         'div_edad' : div_edad,
+        'promedio_edad': promedio_edad,
     }
     return render(request, "inscripciones/lista_inscritos.html", contexto)
 

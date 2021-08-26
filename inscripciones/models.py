@@ -15,5 +15,5 @@ class Inscripcion(models.Model):
     costo_total = models.DecimalField(max_digits=5, decimal_places=2, default=0)
    
 
-    def _str_(self):
+    def __str__(self):
         return '%s %s' % (self.estudiante, self.fecha_inscripcion, self.curso, self.costo_total)

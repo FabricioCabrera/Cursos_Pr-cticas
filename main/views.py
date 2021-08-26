@@ -7,7 +7,8 @@ from inscripciones.models import*
 from .models import Curso
 from .form import CursoForm
 from django.db.models import Sum
-
+#from .form import*
+#from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -70,18 +71,18 @@ def curso_form(request):
         'form' : form
         }
         if form.is_valid():
-            form.save()
-            return redirect('main:homepage')
+               form.save()
+               return redirect('main:homepage')
 
     return render(request,  "main/guardarCurso.html", contexto)
 
 
 def inscritosCurso(request, id):
-    cursos = Curso.objects.get(id=id)
-    inscritos_curso = Inscripcion.objects.filter(curso = cursos)
+    curso = Curso.objects.get(id=id)
+    inscritos_curso = Inscripcion.objects.filter(curso = curso)
     suma_costos = inscritos_curso.aggregate(Sum('costo_total'))
     contexto = {
-        'cursos': cursos,
+        'curso': curso,
         'inscritos_curso': inscritos_curso, 
         'suma_costos': suma_costos  
     }

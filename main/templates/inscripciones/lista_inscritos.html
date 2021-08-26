@@ -4,13 +4,14 @@ Inscripcion de Estudiantes
 
 {% block content %}
 
-<center><h3 id="tittle_pagina">Lista de Estudiantes Registrados {{ curso }} </h3></center>
+<center><h3 id="tittle_pagina">Lista de Estudiantes Registrados en: {{ curso }} </h3></center>
 
 <div class="nav-wrapper ffcc80 cfd8dc blue-grey lighten-4" >
 
     <!--<h5>Total Recaudado: {{ suma_costos.costo_total__sum}}</h5>-->
     <h4>Total Recaudado:  $<span id="totaljs"></span></h4>
     <!--<h5>Edad Promedio : {% widthratio suma_edad.edad__sum div_edad.edad__count 1 %} años</h5>-->
+    <h4>Edad Promedio : <span id="totaldeEdadPython"></span>{{promedio_edad.edad__avg}} Años</h4> 
     <h4>Edad Promedio : <span id="totaldeEdad"></span> Años</h4> 
     
 </div>
@@ -32,6 +33,7 @@ Inscripcion de Estudiantes
 
     <tbody>
         {% for est in inscritos_curso %}
+
         <tr>  
             <td>{{est.id}}</td>    
             <!--<td>{{est.estudiante}}</td>-->

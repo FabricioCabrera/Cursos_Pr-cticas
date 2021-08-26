@@ -6,6 +6,9 @@ class InscripcionAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'estudiante', 
+        'nombres',
+        'apellidos',
+        'edad',
         'fecha_inscripcion',
         'curso',
         'costo_total',
