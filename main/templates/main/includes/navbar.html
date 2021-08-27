@@ -1,17 +1,18 @@
 <nav>
     <div class="nav-wrapper  orange darken-2" >
       <a href="/" class="brand-logo">Cursos</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Inicio</a></li>
+      <ul id="nav-mobile" class="right e65100 orange darken-4">
+        <li><a href="/">Inicio  |</a></li>
 
         {% if user.is_authenticated %}
-          <li><a></a>{{user.username}}</a></li>
-          <li><a href="/guardarCurso">Agregar Curso</a></li>
-          <li><a href="{% url 'inscripcion:lista_estudiantes' %}">Lista de Estudiantes</a></li>
+          <li></a>{{user.username}} </a></li>
+          <li><a href="/guardarCurso">Agregar Curso  |</a></li>
+          <li><a href="{% url 'inscripcion:lista_estudiantes' %}">Lista de Estudiantes  |</a></li>
+          <li><a href="{% url 'main:lista_form' %}">Lista de Cursos  |</a></li>
           <li><a href="/logout">Salir</a></li>
         {% else %}
-          <li><a href="{% url 'main:registro' %}">registro</a></li>
-          <li><a href="/login">Entrar</a></li>
+          <li><a href="{% url 'main:registro' %}">registro  |</a></li>
+          <li><a href="/login">Entrar  |</a></li>
           
         {% endif %} 
 

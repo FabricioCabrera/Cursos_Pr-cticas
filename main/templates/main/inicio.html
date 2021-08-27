@@ -2,6 +2,10 @@
 {% extends "main/principal.html" %} {% block content %}
 
 
+
+
+
+
 {% for cur in cursos %}
 
 <center>
@@ -9,12 +13,16 @@
       <div class="col s12 m6">
         <div class="card teal darken-3">
           <div class="card-content white-text ">
-            <span class="card-title">{{cur.curso_titulo}}</span>
-              <p>{{cur.curso_publicado}}</p>
-              <p>{{cur.curso_contenido}}</p>
-              <p>{{cur.curso_costo|safe}}</p>
+          <div>
+          <p><img src={{cur.image.url}} width="130" height="100"
+            style="border: 2px outset; color: orange;" /></p>
+          </div
+              
+          <span class="card-title">{{cur.curso_titulo}}</span>
+            <p>{{cur.curso_publicado}}</p>
+            <p>{{cur.curso_contenido}}</p>
+            <p>{{cur.curso_costo|safe}}</p> 
           </div>
-
           <div class="card-action">
             <a href="{% url 'inscripciones:inscripcionesform' cur.pk %}">Inscribirse</a>
             <a href="{% url 'main:inscritos_curso' cur.pk %}">Lista de inscritos</a>

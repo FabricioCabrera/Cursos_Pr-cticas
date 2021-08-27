@@ -11,6 +11,8 @@ urlpatterns = [
     path('login/', views.login_request, name="login"),
     path('guardarCurso/', views.curso_form, name='guardarCurso'),
     path('inscritos_curso/<int:id>/', views.inscritosCurso, name="inscritos_curso"),
-    #path('upload_image/', views.upload_image, name='upload_image'),
-    #path('image_gallery/', views.image_gallery, name='image_gallery')
+  
+    path('editarCurso/<int:id>/', views.editarCurso, name= 'editarCurso'),
+    path('eliminarCurso/<int:id>/', views.eliminarCurso, name= 'eliminarCurso'),
+    path('lista_form/', views.lista_form, name= 'lista_form'),
 ]

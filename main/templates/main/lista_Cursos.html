@@ -1,0 +1,39 @@
+{% extends "main/principal.html" %} 
+{% block content %}
+
+<center><h1>Lista de Cursos</h1></center>
+
+<form method="POST" enctype="multipart/form-data">
+<table class="striped">
+    <thead>
+        <tr >    
+            <th>Título</th>    
+            <th>Contenido</th>    
+            <th>Fecha</th>    
+            <th>Precio</th> 
+            <th>Imagen</th   
+            <th >Opciones</th>    
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for cur in cursos %}
+
+
+        <tr>    
+            <td>{{cur.curso_titulo}}</td>    
+            <td>{{cur.curso_contenido}}</td>    
+            <td>{{cur.curso_publicado}}</td>    
+            <td>{{cur.costo}}</td>
+            <td><img src={{cur.image.url}} width="130" height="100"/></td>
+            <td><a href="{% url 'main:editarCurso' cur.id %}">Editar</a>    <a href="{% url 'main:eliminarCurso' cur.id %}">Eliminar</a></td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+</form>
+
+{% endblock  %}
